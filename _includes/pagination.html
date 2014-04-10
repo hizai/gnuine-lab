@@ -1,0 +1,11 @@
+{% if paginator.previous_page %}
+  <div id="load-more">
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="load-more">Posts más recientes</a>
+  </div>
+{% endif %}
+
+{% if paginator.next_page %}
+  <div id="load-more">
+    <a href="/page{{ paginator.next_page }}" class="load-more">Posts más antiguos</a>
+  </div>
+{% endif %}

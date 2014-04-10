@@ -1,4 +1,5 @@
 name: Your New Jekyll Site
 markdown: redcarpet
 pygments: true
-
+paginate: 1
+paginate_path: "page:num"

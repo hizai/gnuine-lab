@@ -1,44 +1,128 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Journal HTML5 Template">
+    <meta name="author" content="suitstheme.com">
+    <script src="/js/jquery.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,900|Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/syntax.css" type="text/css">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="/img/favicon.html">
+  </head>
+  <body class="body-container">
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
+    <section class="top-menu hidden-section fullwidth-section">
+      <a href="#hidden-menu" class="open-menu">Menu</a>
+  
+      <nav class="menu" id="hidden-menu">
+        <ul>
+          <li><a href="#">Home</a>
+            <ul>
+              <li><a href="#">Drop Down Menu</a></li>
+              <li><a href="#">Drop Down Menu</a></li>
+              <li><a href="#">Drop Down Menu</a></li>
+            </ul>
+          </li>
+          <li><a href="page.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="archives.html">Archives</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </section>
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+    <section class="main-content">
+      
+      <div class="container">
+      
+        <div class="row">
 
-    </head>
-    <body>
+          <div class="col-mx-12 col-md-4 sidebar" id="sidebar">
+            
+            <div class="sidebar-content-wrapper">
+              
+    
+              <div class="logo-wrapper">
+                
+                <a href="/index.html" class="logo"><img src="/img/demo/logo.png" alt="Journal"></a>
+                <div class="site-description">Not Just Another Lab Division</div>
+                
+              </div>
+            
+              <div class="widgets-wrapper">
 
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
+                <div class="widget">
+                  <h3>About us</h3>
+                  <div class="widget-content">
+                    <p>
+                      Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit.
+                      <br><br>
+                      Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque suspendisse in orci denim odio ferment.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="widget">
+                  <h3>Tagcloud</h3>
+                  <div class="widget-content">
+                    <div class="tagcloud">
+                      <a href="#">blog</a>
+                      <a href="#">suits theme</a>
+                      <a href="#">wordpress</a>
+                      <a href="#">technology</a>
+                      <a href="#">design</a>
+                      <a href="#">unique</a>
+                      <a href="#">dark</a>
+                    </div>
+                  </div>
+                </div>
+       
+                <div class="widget">
+                  <h3>Social</h3>
+                  <div class="widget-content">
+                    <div class="social-wrapper">
+                      <a href="#" class="facebook"></a>
+                      <a href="#" class="twitter"></a>
+                      <a href="#" class="dribbble"></a>
+                      <a href="#" class="flickr"></a>
+                      <a href="#" class="youtube"></a>
+                      <a href="#" class="rss"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+     
+              <div class="copyrights">
+                <p>@2013 gnuine</p>
+              </div>
+
+            </div>
           </div>
 
-          {{ content }}
-
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
+          <div class="col-mx-12 col-md-8 page-wrapper" id="page-wrapper">
+            {{ content }}  
           </div>
+            
         </div>
+      </div>
+    </section>
 
-    </body>
+    <script src="/js/jquery.flexslider-min.js"></script>
+    <script src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="/js/mediaelement.min.js"></script>
+    <script src="/js/jflickrfeed.js"></script>
+    <script src="/js/placeholder.js"></script>
+    <script src="/js/jquery.browser.js"></script>
+    <script src="/js/retina.min.js"></script>
+    <script src="/js/custom.js"></script>
+      
+  </body>
 </html>

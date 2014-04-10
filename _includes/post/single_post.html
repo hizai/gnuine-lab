@@ -1,0 +1,35 @@
+<div class="single-post">
+  
+  {% comment %}
+    {% include post/post_image.html %}
+  {% endcomment %}
+
+  <div class="post-content">
+    <h2 class="post-title">{{ page.title }}</h2>
+    
+    {% include post/post_meta.html %}
+
+    <div class="post-inner-content">
+      {{ content }}
+    </div>
+    
+    <div class="post-share">
+            
+      <div class="tags">
+        {% for tag in page.categories %}
+          <a href="#">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      
+      <div class="share">
+        <p class="light-text">Share: </p>
+        <a href="#" class="facebook"></a>
+        <a href="#" class="twitter"></a>
+        <a href="#" class="pinterest"></a>
+        <a href="#" class="googleplus"></a>
+      </div>
+
+    </div>
+    
+  </div>
+</div>

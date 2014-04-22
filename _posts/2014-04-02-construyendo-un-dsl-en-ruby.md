@@ -3,6 +3,7 @@ layout: post
 title:  "Construyendo un DSL en Ruby"
 date:   2014-04-02 09:06:00
 categories: ruby rails design-patterns
+author: Jesús Prieto
 ---
 
 La expresividad sintáctica de Ruby es una de las características por las cuales es más querido y se debe en gran medida a las herramientas únicas que ofrece para construir DSLs. Las DSL en Ruby, de hecho y por ser tan habituales, se han convertido en algo intrínseco al lenguaje y a la forma con que escribimos código; tanto que muchas veces, por costumbre de verlas, llegamos a olvidarnos de lo que son.

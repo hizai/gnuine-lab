@@ -1,4 +1,6 @@
-name: Your New Jekyll Site
+name: Gnuine lab
+description: Un blog de desarrollo web Ruby on Rails
+url: http://lab.gnuine.com
 markdown: redcarpet
 pygments: true
 paginate: 5

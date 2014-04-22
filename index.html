@@ -3,15 +3,4 @@ layout: default
 title: Gnuine Lab
 ---
 
-<div class="page">
-  <div id="home">
-    <h1>Blog Posts</h1>
-    <div class="posts">
-      {% for post in paginator.posts %}
-        {% include abstract_post.html param=post %}
-      {% endfor %}
-    </div>
-  </div>
-</div>
-
-{% include pagination.html %}
+{% include shared/list_page.html post_list=paginator.posts title='Blog Posts' %}

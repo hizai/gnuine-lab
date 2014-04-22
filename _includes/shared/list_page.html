@@ -1,0 +1,12 @@
+<div class="page">
+  <div id="home">
+    <h1>{{ include.title }}</h1>
+    <div class="posts">
+      {% for post in include.post_list %}
+        {% include abstract_post.html param=post %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% include pagination.html %}

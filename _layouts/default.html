@@ -74,13 +74,9 @@
                   <h3>Tagcloud</h3>
                   <div class="widget-content">
                     <div class="tagcloud">
-                      <a href="#">blog</a>
-                      <a href="#">suits theme</a>
-                      <a href="#">wordpress</a>
-                      <a href="#">technology</a>
-                      <a href="#">design</a>
-                      <a href="#">unique</a>
-                      <a href="#">dark</a>
+                      {% for category in site.categories %}
+                        <a href="/{{ category | first | slugize }}/">{{ category | first }}</a>
+                      {% endfor %}
                     </div>
                   </div>
                 </div>

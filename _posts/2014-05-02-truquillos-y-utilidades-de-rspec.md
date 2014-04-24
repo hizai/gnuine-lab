@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Truquillos y utilidades de Rspec"
+title:  "Consejos y best practices de Rspec"
 date:   2014-05-02 09:06:00
 categories: rspec tips
 author: Jesús Prieto
@@ -8,7 +8,7 @@ author: Jesús Prieto
 
 ---- Text introductori ----
 
-## Eager load en Rspec
+## Eager load
 
 Todos los **subject** o variables **let** que llamas en Rspec se evalúan en el momento de la llamada y son eager load. Esto te permite dejarlos indicados de forma genérica y customizar los valores que toman en cada test, como se ilustra a continuación:  
 
@@ -47,7 +47,7 @@ Todos los **subject** o variables **let** que llamas en Rspec se evalúan en el 
     end
 {% endhighlight %}
 
-## Rspec custom matchers
+## Custom matchers
 
 Se almacenan en **/spec/support/matchers** y se usan en los tests de esta manera:
 

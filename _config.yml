@@ -5,3 +5,7 @@ markdown: redcarpet
 pygments: true
 paginate: 5
 paginate_path: "page:num"
+analytics:
+  provider: google
+  google: 
+    tracking_id: 'UA-50358422-1'

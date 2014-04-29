@@ -49,13 +49,15 @@ Todos los **subject** o variables **let** que llamas en Rspec se evalúan en el 
 
 ## Custom matchers
 
-Se almacenan en **/spec/support/matchers** y se usan en los tests de esta manera:
+Se almacenan habitualmente en **/spec/support/matchers** y se usan de esta manera:
 
 {% highlight ruby %} 
     it { should assign_results_for( users, scoped_users ) }
 {% endhighlight %}
 
-Definir uno es sencillo, basta con decirle qué tiene que **#match**: el matcher evaluará OK cuando esto se cumpla. Los argumentos del bloque son los argumentos con los que se llama a matcher y **actual** es el objeto sobre el que se llama al matcher (generalmente **subject**). Opcionalmente se puede customizar la descripción y el output del test de forma que sobreescriba el que tendría por defecto y que él mismo es capaz de deducir a partir del nombre del matcher:
+Si la sintaxi recuerda a [shoulda matchers][shoulda-matchers] es porque los [shoulda matchers][shoulda-matchers] son solamente un conjunto de custom matchers. Con ellos se evita repetición y se refactoriza código que de otra forma sería un largo conjunto de bloques **#it**, ya que ellos mismos son capaces de deducir a partir del nombre del matcher los mensajes de éxito y fallo que se printarán cuando se pase el suit de tests.
+
+Definirlos es sencillo, basta con decirle qué tiene que **#match**: el matcher evaluará OK cuando dicha condición se cumpla. Los argumentos del bloque son los argumentos con los que se llama a matcher y **actual** es el objeto sobre el que se llama (generalmente será **subject**). Opcionalmente se puede customizar la descripción y el output del test de forma que sobreescriba el que tendría por defecto:
 
 {% highlight ruby %} 
     # assign_results_for_matcher.rb
@@ -85,3 +87,10 @@ Definir uno es sencillo, basta con decirle qué tiene que **#match**: el matcher
 {% endhighlight %}
 
 Y recuerda, mantén tus tests [DRY][dry]: ellos también son personas.
+
+## Factory Girl syntax methods
+
+Este es un oldie. 
+
+[shoulda-matchers]: https://github.com/thoughtbot/shoulda-matchers
+[dry]: http://es.wikipedia.org/wiki/No_te_repitas

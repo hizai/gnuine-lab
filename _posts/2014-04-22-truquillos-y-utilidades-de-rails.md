@@ -117,6 +117,5 @@ Si el **my_custom_helper*** en cuestión depende de **params** se puede utilizar
 Si Rails es un Framework y ese Framework es un conjunto de librerías, Rails es un conjunto de librerías. Una de las cosas que marcan la diferencia es no olvidar que pase lo que pase estás trabajando con una aplicación de Ruby; y Ruby es un lenguaje orientado a objetos, característica ésta que a veces, cuando alguien escribe una aplicación Rails en lugar de una aplicación que usa Rails, se pasa por alto. La moraleja de todo esto son los Pure Old Ruby Objects. Si tienes modelos gordos cual [Snorlaxs][snorlax] y controladores donde cada método ocupa más de cinco líneas seguramente has olvidado que tanto unos como otros son objetos de Ruby que, tal como están, violan conceptos básicos sin los cuales la orientación a objetos pierde la razón de ser -como [Single Responsability Principle][single_responsability_principle]-. Una primera lectura interesante para introducirse a este nuevo paradigma es [este post de Codeclimate][code_climate_poros].
 
 [snorlax]: http://www.dltk-kids.com/pokemon/adoptions/143.gif
-[dry]: http://es.wikipedia.org/wiki/No_te_repitas
 [single_responsability_principle]: http://es.wikipedia.org/wiki/Single_responsibility_principle
 [code_climate_poros]: http://blog.codeclimate.com/blog/2012/10/17/7-ways-to-decompose-fat-activerecord-models/

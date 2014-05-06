@@ -6,7 +6,7 @@ categories: rails tips
 author: Jesús Prieto
 ---
 
-Cada framework o lenguaje de programación está lleno de capacidades infrautilizadas y lugares menos transitados de lo que deberían, cosas de esas que una vez descubres te preguntas cómo habías suportado tanto tiempo sin ellas. Esta es una lista de algunos de los que usamos los desarrolladores de Gnuine cuando escribimos aplicaciones en Rails.
+Cada framework o lenguaje de programación está lleno de capacidades infrautilizadas y lugares menos transitados de lo que deberían, cosas de esas que una vez descubres te preguntas cómo habías vivido tanto tiempo sin ellas. Esta es una lista de algunos de los que usamos los desarrolladores de Gnuine cuando escribimos aplicaciones en Rails.
 
 ## El modo sandbox de la consola de Rails
 

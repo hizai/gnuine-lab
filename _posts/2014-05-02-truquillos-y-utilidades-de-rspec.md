@@ -6,11 +6,11 @@ categories: rspec tips
 author: Jesús Prieto
 ---
 
-Siempre ha habido un gran debate en la comunidad de Ruby sobre por qué usar una capa de lógica intermedia para los tests, como es el framework de RSpec, cuando se puede usar el Pure old Ruby de Test unit. Pero al margen de la discusión todo el mundo admite las bondades no subjectivas de RSpec por las que fue inventado encabezadas por la conveniencia sintáctica y de estructuración de código de su DSL para hacer un approach del desarrollo basado en el TDD. Si estás pensando en darle una oportunidad, ya sea para introducirte en el testing de Ruby o para hacer el cambio desde otra herramienta, o si a ti ya te ha convencido, aquí tienes unos poco consejos para que el código de tus tests sea más elegante y eficiente. 
+Siempre ha habido un gran debate en la comunidad Ruby sobre por qué usar una capa de lógica intermedia para los tests como es el framework de RSpec cuando se puede usar el Pure old Ruby de Test unit. Pero al margen de la discusión, que es más bien filosófica, es inevitable admitir las bondades objetivas de RSpec, la primera de ellas la conveniencia sintáctica y de estructuración de código que ofrece su DSL para incentivar un approach del desarrollo basado en TDD. Si estás pensando en darle una oportunidad, ya sea para introducirte en el testing de Ruby o para hacer el cambio desde otra herramienta, o si a ti ya te ha convencido, aquí tienes unos poco consejos para que el código de tus tests sea más elegante y eficiente. 
 
 ## Eager load
 
-Todos los **subject** o variables **let** que llamas en Rspec se evalúan en el momento de la llamada, son eager load. Esto te permite dejarlos indicados de forma genérica y customizar los valores que toman en cada test, como se ilustra a continuación:  
+Todos los **subject** o variables **let** que llamas en Rspec se evalúan en el momento de la llamada, son eager load. Esto te permite dejarlos indicados de forma genérica y customizar los valores que toman en cada test como se ilustra a continuación:  
 
 {% highlight ruby %}
     require 'spec_helper'
@@ -100,7 +100,7 @@ Y recuerda, mantén tus tests [DRY][dry]: ellos también son personas.
 
 ## Factory Girl syntax methods
 
-Este es un oldie. Si usas [FactoryGirl][factory-girl], como seguramente deberías, incluye el módulo **FactoyGirl::Syntax::Methods** a tu configuración para poder llamar a todos sus métodos a través del objeto de RSpec de forma que puedas usarlos sin prefijar **FactoryGirl**.
+Este es un oldie. Si usas [FactoryGirl][factory-girl] -como seguramente deberías- incluye el módulo **FactoyGirl::Syntax::Methods** a tu configuración para poder llamar a todos sus métodos a través del objeto de RSpec de forma que puedas usarlos sin prefijar **FactoryGirl**.
 
 {% highlight ruby %} 
   # random_spec.rb
@@ -125,11 +125,11 @@ Para ello, dentro del bloque **configure** de ***spec\_helper.rb***:
 
 ## Let!
 
-Como decíamos en el primer consejo **#let** tiene eager load, de forma que no se ejecuta cuando se declara sino cuando es llamado. El método **#Let!** tiene la misma funcionalidad pero en este caso no es eager load. Así, si declaras un **#let!** el bloque evaluado se ejecutará antes de cada ***example***. Estos [ejemplos de la documentación en RelishApp][let-let] son muy ilustrativos.
+Como decíamos en el primer consejo **#let** tiene eager load, de forma que no se ejecuta cuando se declara sino cuando es llamado. El método **#Let!** tiene la misma funcionalidad que **#let** pero en este caso no es eager load. Así, si declaras un **#let!** el bloque que se le pasa se ejecutará antes de cada ***example*** independientemente de si el objeto que define es llamado en él. Estos [ejemplos de la documentación en RelishApp][let-let] son muy ilustrativos.
 
 ## Imagen de Carrierwave con FactoryGirl
 
-Si utilizas [Carrierwave][carrierwave] para el upload de imágenes y quieres testear algo alrededor de un recurso subido a través de un uploader puedes configurar su factoría de este modo. Digamos que tenemos un modelo ***Photo*** con una imagen asociada a través del método definido por **#mount_uploader** llamado ***image***:
+Si utilizas [Carrierwave][carrierwave] para el upload de imágenes y quieres testear algo alrededor de un recurso subido a través de un uploader puedes configurar su factoría de este modo. Sea un modelo ***Photo*** con una imagen asociada a través del método definido por **#mount_uploader** llamado ***image***:
 
 {% highlight ruby %} 
   class Photo < ActiveRecord::Base
@@ -151,7 +151,7 @@ Donde solo tienes que sustituir tu\_ruta\_a\_la\_imagen por la ruta a la imagen 
 
 ## Shared examples
 
-Son una gran herramienta para [DRY][dry] el código de tus specs. Consisten en encapsular los examples compartidos por más de un **#context** o **#describe** dentro de un **#shared\_examples\_for**:
+Son una gran herramienta para [DRY][dry] el código de tus specs. Consiste en encapsular los examples compartidos por más de un **#context** o **#describe** dentro de un **#shared\_examples\_for**:
 
 {% highlight ruby %}
   shared_examples_for 'animal' do |animal|
@@ -174,7 +174,7 @@ Y reutilizarlos donde sea necesario, por ejemplo aquí:
 
 En primer lugar necesitamos saber qué son los mocks y los stubs en RSpec, y en qué se diferencian. Un stub reemplaza un método por código que se evaluará en su lugar. Un mock es lo mismo que un stub pero añade la expectativa de que ese método sea llamado.
 
-Su utilidad es incalculable para contener la extensión de un conjunto de tests al contexto que estan testeando de manera que cuando testees una clase o un método solo estés testeando su responsabilidad y no la de partes del código externas a ello, haciéndolos así confusos (no conviene el test de una clase falle por un error en una clase diferente) y potencialmente lentos (sobretodo si tienen que interactuar con la base de datos). Y esto es algo que quieres en todos tus tests unitarios. Pondremos un par de ejemplos de uso:
+Su utilidad es incalculable para contener la extensión de un conjunto de tests al contexto que estan testeando, de manera que cuando testees una clase o un método solo estés testeando su responsabilidad y no la de partes del código externas a ello, cosa que los haría confusos (no conviene el test de una clase falle por un error en una clase diferente) y potencialmente lentos (sobretodo si tienen que interactuar con la base de datos). Y esto es algo que quieres en todos tus tests unitarios. Pondremos un par de ejemplos de uso:
 
 {% highlight ruby %}
   describe UserManager do
@@ -192,7 +192,7 @@ Su utilidad es incalculable para contener la extensión de un conjunto de tests 
   end
 {% endhighlight %}
 
-En el primer example se utiliza un mock: **#should_receive** genera una expectación y si esta no se cumple el test va a fallar; en el segundo se utiliza un stub para evitar una conexión en potencia con **ActiveRecord** (para hacer un retrieve del email). Ambos métodos tienen un gran espectro de posibilidades: **#stub** puede recibir bloques o strubear cualquier instancia de una clase, **#should_receive** puede expectar argumentos en concreto o un número de invocaciones, y un largo etcétera, con lo que recomendamos encarecidamente echar un ojo a la documentación tanto de [uno][should_receive] como del [otro][stub] para abrir los ojos a todas sus posibilidades. 
+En el primer example se utiliza un mock: **#should_receive** genera una expectación y si esta no se cumple el test va a fallar; en el segundo se utiliza un stub para evitar una conexión en potencia con **ActiveRecord** (para hacer un retrieve del email). Ambos métodos tienen un gran espectro de posibilidades: **#stub** puede recibir bloques o stubear cualquier instancia de una clase, **#should_receive** puede expectar argumentos en concreto o un número de invocaciones, y a continuación un largo etcétera con lo que recomendamos encarecidamente echar un ojo a la documentación tanto de [uno][should_receive] como del [otro][stub] para abrir los ojos a todas sus posibilidades. 
 
 {% highlight ruby %}
   describe Hulk do
@@ -207,9 +207,40 @@ En el primer example se utiliza un mock: **#should_receive** genera una expectac
   end
 {% endhighlight %}
 
-En este caso introducimos el método **#double** que devuelve un objeto al que se han stubeado los métodos de las keys de su inicialización con los valores asociados. Haciendo el test de esta forma la parte de **#kill?** relacionada con Hulk es la única que está siendo sujeta a testeo, en lugar de involucrar a los objetos que hubiesen sido enemy y weapon de otra manera y aislando el test.
+En este caso introducimos el método **#double** que devuelve un objeto al que se han stubeado los métodos de las keys de su inicialización con los valores asociados. Haciendo el test de esta forma la parte de **#kill?** relacionada con Hulk es la única que está siendo sujeta a testeo, en lugar de involucrar a los objetos que hubiesen sido enemy y weapon de otra manera y aislando así el test.
 
-<!-- Falta shoulda matchers y metadatos -->
+## Metadatos
+
+RSpec permite el uso de metadatos en los examples que permitirán establecer filtros en el momento de ejecutar la suite. Si tenemos:
+
+{% highlight ruby %}
+  it "tests something", focus: true
+    expect( subject.something ).to be_tested
+  end
+{% endhighlight %}
+
+Podemos filtrar el lanzamiento de tests a aquellos con el tag focus con:
+
+{% highlight bash %}
+  rspec --tag focus spec
+{% endhighlight %}
+
+O por los que no lo tienen:
+
+{% highlight bash %}
+  rspec --tag ~focus spec
+{% endhighlight %}
+
+Para configurar unos filtros por defecto los declaramos en el bloque de configuración de spec_helper:
+
+{% highlight ruby %}
+  # spec_helper.rb
+
+  RSpec.configure do |config|
+    config.filter_run_excluding focus: true
+    config.run_all_with_everything_filtered = true
+  end
+{% endhighlight %}
 
 [shoulda-matchers]: https://github.com/thoughtbot/shoulda-matchers
 [dry]: http://es.wikipedia.org/wiki/No_te_repitas
